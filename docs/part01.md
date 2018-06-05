@@ -1,5 +1,7 @@
 # L'asynchronisme et le parallélisme
 
+[Retour au sommaire](./../README.md)
+
 ## Le thread
 
 Imaginons un programme comme celui-ci :
@@ -64,14 +66,3 @@ Attendre la réponse, c'est simple, mais ce n'est pas efficace. Comment faire po
 ### Si tu crois que je n'ai que ça à faire...
 
 L'idée derrière l'asynchronisme n'est pas la vitesse, mais de "réquisitionner" le thread le moins longtemps possible. En effet, bloquer certains threads peut être très problématique dans certains cas.
-
-## Libérons les threads
-
-### Client lourd
-
-Lorsqu'on lance un client lourd avec une interface graphique, le programme démarre sur le thread principal, également appelé thread graphique ou thread UI. C'est lui qui gère tout l'affichage et c'est le seul à pouvoir tenir ce rôle. Si celui-ci est en train d'attendre, il ne peut pas s'occuper de l'affichage en même temps. Si le temps d'attente n'est que de quelques millisecondes, ça ne se voit pas. Si c'est plusieurs secondes, on voit que l'interface ne bouge plus, que plus rien ne répond : l'application *freeze*.
-
-Effectuer l'attente sur un autre thread (avoir un comportement asynchrone) libère donc le thread UI, qui peut s'occuper de l'affichage. L'interface graphique répond, l'utiliateur est content.
-
-### ASP.NET
-
