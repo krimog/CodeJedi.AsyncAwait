@@ -8,6 +8,7 @@ L'objectif de ce cours est de présenter les mots-clés `async` et `await`, appa
 
 1. [L'asynchronisme et le parallélisme](./docs/part01.md)
 1. [Le besoin d'asynchronisme](./docs/part02.md)
+1. [Quand on devait tout faire à la main](./docs/part03.md)
 
 ## Pré-requis
 

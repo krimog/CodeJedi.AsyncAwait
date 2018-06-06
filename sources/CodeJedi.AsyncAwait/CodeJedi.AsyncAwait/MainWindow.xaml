@@ -1,0 +1,53 @@
+﻿<Window x:Class="CodeJedi.AsyncAwait.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeJedi.AsyncAwait"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.UIThreadId, StringFormat='ID du thread UI : {0:D}'}" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.ProcessingThreadId, StringFormat='ID du thread de traitement : {0:D}'}" />
+                
+                <TextBlock x:Name="ResultTextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"
+                           Grid.Column="2"/>
+            </Grid>
+            <Grid Height="30">
+                <ProgressBar Minimum="0" Maximum="1" 
+                             Value="{Binding Processing.Progress, Mode=OneWay}" />
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Pas de traitement" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Processing.IsProcessing}" Value="True">
+                                    <Setter Property="Text" Value="Traitement en cours..." />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Grid Height="30">
+            <ProgressBar IsIndeterminate="True" />
+            <TextBlock Text="Si cette barre défile, c'est que le thread UI n'est pas bloqué." VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+        </Grid>
+        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <Button Command="{Binding SynchronousCommand}">Exécution synchrone</Button>
+                <Button Command="{Binding BackgroundWorkerCommand}">BackgroundWorker</Button>
+                <Button Command="{Binding DispatcherCommand}">Dispatcher</Button>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
