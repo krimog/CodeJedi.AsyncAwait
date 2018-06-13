@@ -47,6 +47,7 @@
                 <Button Command="{Binding SynchronousCommand}">Exécution synchrone</Button>
                 <Button Command="{Binding BackgroundWorkerCommand}">BackgroundWorker</Button>
                 <Button Command="{Binding DispatcherCommand}">Dispatcher</Button>
+                <Button Command="{Binding AsyncAwaitSimpleCommand}">Exemple simple avec async et await</Button>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
