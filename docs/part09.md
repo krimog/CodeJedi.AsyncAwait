@@ -1,5 +1,7 @@
 # Bonnes pratiques
 
+[Retour au sommaire](./../README.md)
+
 ## `ConfigureAwait`
 
 Rappelons ce qu'il se passe au niveau des threads lors de l'utilisation d'un `await` :
@@ -87,3 +89,5 @@ Task MyMethodAsync()
 > Attention :
 >
 > Si le `await` à enlever est au sein d'un bloc (`using`, `try/catch`...), le replacer par un `return` risque d'avoir des effets secondaires, puisqu'on sortira du bloc avant la fin de la tâche.
+
+[Suite](./part10.md)

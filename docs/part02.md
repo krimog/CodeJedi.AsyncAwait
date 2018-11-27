@@ -35,3 +35,5 @@ Il existe plusieurs moyens d'effectuer ceci (Dispatcher, Background worker...) m
 Cette classe contient une propriété statique `Current`. Cependant, une même application web gèrera des dizaines de requêtes simultanément, sur des threads différents. Chaque thread a donc un `HttpContext.Current` différent. Ce qui veut donc dire que lorsqu'on crée un nouveau thread, on ne peut plus accéder au contexte courant.
 
 Il est toujours possible d'extraire le contexte dans une variable et de passer celle-ci dans le nouveau thread, mais c'est une action supplémentaire dont on se passerait bien.
+
+[Suite](./part03.md)

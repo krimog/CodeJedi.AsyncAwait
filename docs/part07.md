@@ -1,5 +1,7 @@
 # `async`, `await` et synchronisme
 
+[Retour au sommaire](./../README.md)
+
 ## Une méthode *awaitable* n'est pas nécessairement asynchrone
 
 Quoi ? Mais si une méthode est synchrone, pourquoi la faire *awaitable* ? Il peut y avoir plusieurs raisons de faire une telle chose, et en voici quelques unes :
@@ -73,3 +75,5 @@ C'est pour cela que `ValueTask<T>` a été créé : être capable de gérer les 
 * Si l'intégralité des implémentations sont synchrones, la méthode doit être synchrone.
 * Si la majorité des implémentations sont synchrones, la méthode doit renvoyer une `ValueTask<T>`.
 * Si la majorité des implémentations sont asynchrones, la méthode doit renvoyer une `Task<T>`.
+
+[Suite](./part08.md)

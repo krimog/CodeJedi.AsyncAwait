@@ -1,5 +1,7 @@
 # `async`, `await` et parallélisme
 
+[Retour au sommaire](./../README.md)
+
 Jusque là, on a utilisé `async` et `await` pour effectuer des traitements asynchrones. Mais il est également possible d'effectuer simplement du parallélisme avec ces mots-clés.
 
 ## `Task.WhenAll`
@@ -97,3 +99,5 @@ while (runningTasks.Any())
     // On peut également utiliser le nombre de tâches qu'on a terminé pour afficher l'avancement.
 }
 ```
+
+[Suite](./part09.md)

@@ -106,3 +106,5 @@ Aussi loin qu'il est nécessaire d'attendre, c'est-à-dire généralement jusqu'
 Si l'on veut qu'une méthode soit *awaitable*, il **faut** qu'elle renvoie une tâche (que ce soit une `Task`, `Task<T>` ou `ValueTask<T>`). Or, on **peut** rendre une méthode `async` et lui faire renvoyer une tâche sans avoir d'`await` à l'intérieur (ça va juste marquer un *warning*, dont on parlera plus tard).
 
 Ainsi, en partant du principe qu'une méthode aura potentiellement des appels asynchrones, on évite d'avoir à toucher après coup à tout l'arbre d'appel.
+
+[Suite](./part07.md)

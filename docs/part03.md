@@ -64,3 +64,5 @@ public void DispatcherExample()
     });
 }
 ```
+
+[Suite](./part04.md)

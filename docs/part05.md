@@ -225,3 +225,5 @@ public async Task MyMethod1Async()
 ```
 
 Et la logique d'exécution est exactement la même que si tout le code était synchrone.
+
+[Suite](./part06.md)

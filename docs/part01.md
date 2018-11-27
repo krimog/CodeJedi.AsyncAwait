@@ -66,3 +66,5 @@ Attendre la réponse, c'est simple, mais ce n'est pas efficace. Comment faire po
 ### Si tu crois que je n'ai que ça à faire...
 
 L'idée derrière l'asynchronisme n'est pas la vitesse, mais de "réquisitionner" le thread le moins longtemps possible. En effet, bloquer certains threads peut être très problématique dans certains cas.
+
+[Suite](./part02.md)

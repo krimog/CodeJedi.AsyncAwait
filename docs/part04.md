@@ -70,3 +70,5 @@ ExecuteMyThirdInstruction();
 La première instruction sera exécutée de manière synchrone sur le thread appelant (qu'on va appeler T0), puis T0 sera libéré (et donc disponible pour autre chose) le temps de l'exécution de la deuxième instruction. Enfin, une fois la deuxième instruction terminée, on retournera sur T0 afin d'exécuter la troisième instruction.
 
 Cependant, ce mot-clé `await` nécessite la présente du mot-clé `async`.
+
+[Suite](./part05.md)
