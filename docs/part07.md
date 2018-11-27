@@ -61,3 +61,15 @@ La méthode statique `Task<T> Task.FromResult<T>(T result)` va exactement faire 
 Et si la méthode ne doit pas renvoyer de résultat (donc une simple `Task` au lieu d'une `Task<T>`) ? Dans ce cas, il suffit de renvoyer la propriété statique `Task Task.CompletedTask`, qui, comme son nom l'indique, correspond juste à une tâche terminée.
 
 ## `Task<T>` vs `ValueTask<T>`
+
+Ça fait déjà un certain temps que je parle de `ValueTask<T>`, mais que je n'utilise que des `Task<T>`.
+
+`ValueTask<T>` est une structure capable de gérer aussi bien une `Task<T>` qu'un simple objet `T`.
+
+Créer une `Task<T>` est une opération lourde. Si l'objectif est de faire un traitement asynchrone, c'est totalement justifié. En revanche, en créer une pour l'utiliser de manière synchrone avec un `Task.FromResult(result)` est lourd.
+
+C'est pour cela que `ValueTask<T>` a été créé : être capable de gérer les opérations asynchrones avec des `Task<T>` et les opérations synchrones qui n'ont pas besoin que l'on en crée.
+
+* Si l'intégralité des implémentations sont synchrones, la méthode doit être synchrone.
+* Si la majorité des implémentations sont synchrones, la méthode doit renvoyer une `ValueTask<T>`.
+* Si la majorité des implémentations sont asynchrones, la méthode doit renvoyer une `Task<T>`.
