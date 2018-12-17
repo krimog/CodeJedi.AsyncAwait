@@ -15,6 +15,8 @@ namespace CodeJedi.AsyncAwait
             SynchronousAsyncCommand = new DelegateCommand(example.SynchronousAsync);
             WhenAllCommand = new DelegateCommand(example.WhenAll);
             WhenAnyCommand = new DelegateCommand(example.WhenAny);
+            CancelTaskCommand = new DelegateCommand(example.CancelTask);
+            ProgressCommand = new DelegateCommand(example.Progress);
             ConfigureAwaitCommand = new DelegateCommand(example.ConfigureAwait);
             DeadlockCommand = new DelegateCommand(example.Deadlock);
         }
@@ -27,6 +29,8 @@ namespace CodeJedi.AsyncAwait
         public DelegateCommand SynchronousAsyncCommand { get; }
         public DelegateCommand WhenAllCommand { get; }
         public DelegateCommand WhenAnyCommand { get; }
+        public DelegateCommand CancelTaskCommand { get; }
+        public DelegateCommand ProgressCommand { get; }
         public DelegateCommand ConfigureAwaitCommand { get; }
         public DelegateCommand DeadlockCommand { get; }
 

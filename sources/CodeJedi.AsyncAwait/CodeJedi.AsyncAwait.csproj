@@ -70,15 +70,18 @@
     </Compile>
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Example.cs" />
+    <Compile Include="Examples\Example.01.Synchronous.cs" />
     <Compile Include="Examples\Example.02.BackgroundWorker.cs" />
     <Compile Include="Examples\Example.03.Dispatcher.cs" />
-    <Compile Include="Examples\Example.01.Synchronous.cs" />
+    <Compile Include="Examples\Example.04.AsyncAwaitSimple.cs" />
     <Compile Include="Examples\Example.05.RunAsynchronously.cs" />
     <Compile Include="Examples\Example.06.SynchronousAsync.cs" />
     <Compile Include="Examples\Example.07.WhenAll.cs" />
     <Compile Include="Examples\Example.08.WhenAny.cs" />
-    <Compile Include="Examples\Example.09.ConfigureAwait.cs" />
-    <Compile Include="Examples\Example.10.Deadlock.cs" />
+    <Compile Include="Examples\Example.09.CancelTask.cs" />
+    <Compile Include="Examples\Example.10.Progress.cs" />
+    <Compile Include="Examples\Example.11.ConfigureAwait.cs" />
+    <Compile Include="Examples\Example.12.Deadlock.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -105,7 +108,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Examples\Example.04.AsyncAwaitSimple.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

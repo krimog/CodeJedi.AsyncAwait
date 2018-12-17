@@ -52,8 +52,10 @@
                 <Button Command="{Binding SynchronousAsyncCommand}">6. Appeler une méthode asynchrone qui ne fait pas de traitement asynchrone</Button>
                 <Button Command="{Binding WhenAllCommand}">7. Appeler plusieurs tâches en parallèle</Button>
                 <Button Command="{Binding WhenAnyCommand}">8. Appeler plusieurs tâches en parallèle et afficher un message dès qu'une se termine</Button>
-                <Button Command="{Binding ConfigureAwaitCommand}">9. Utiliser ConfigureAwait(false) pour retourner sur un autre thread</Button>
-                <Button Command="{Binding DeadlockCommand}">10. Provoquer un deadlock</Button>
+                <Button Command="{Binding CancelTaskCommand}">9. Lancer une longue tâche et l'annuler</Button>
+                <Button Command="{Binding ProgressCommand}">10. Lancer une tâche et voir sa progression</Button>
+                <Button Command="{Binding ConfigureAwaitCommand}">11. Utiliser ConfigureAwait(false) pour retourner sur un autre thread</Button>
+                <Button Command="{Binding DeadlockCommand}">12. Provoquer un deadlock</Button>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>

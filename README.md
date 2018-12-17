@@ -14,6 +14,7 @@ L'objectif de ce cours est de présenter les mots-clés `async` et `await`, appa
 1. [Un exemple concret](./docs/part06.md)
 1. [`async`, `await` et synchronisme](./docs/part07.md)
 1. [`async`, `await` et parallélisme](./docs/part08.md)
+1. [Annulation et progression](./docs/part09.md)
 1. [Bonnes pratiques](./docs/part10.md)
 1. [Conclusion](./docs/part11.md)
 

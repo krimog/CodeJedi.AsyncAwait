@@ -23,12 +23,12 @@ Il y a une méthode pour ça : `ConfigureAwait(false)`.
 synchronousAction();
 // Là, je libère le thread 1
 await asynchronousAction().ConfigureAwait(false);
-// Là, je suis sur un nouveau thread pour ne pas avoir à attendre le thread 1.
+// Là, je suis sur un nouveau thread (ou éventuellement le même que celui de asynchronousAction()) pour ne pas avoir à attendre le thread 1.
 ```
 
 Lorsque le code qui suit un `await` ne nécessite pas d'être sur le même thread que le précédent, cette méthode peut faire gagner du temps.
 
-> Le neuvième exemple de code vous montrera ça : [Example.09.ConfigureAwait.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.09.ConfigureAwait.cs)
+> Le onzième exemple de code vous montrera ça : [Example.11.ConfigureAwait.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.11.ConfigureAwait.cs)
 
 ## Deadlock
 
@@ -62,7 +62,7 @@ Pour éviter ça, il existe plusieurs solutions :
 * Mettre un `ConfigureAwait(false)` derrière `Task.Delay(10)` (et sur l'intégralité des `await` des sous-méthodes). Ainsi, il pourra atteindre l'emplacement 4 et la fin de la question sans le thread 1. L'exécution peut alors continuer.
 * Démarrer `AsynchronousMethod()` sur un autre thread : `Task.Run(() => AsynchronousMethod()).Wait();`
 
-> Vous pouvez provoquer un deadlock et voir les différentes solutions dans le dixième exemple de code : [Example.10.Deadlock.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.10.Deadlock.cs)
+> Vous pouvez provoquer un deadlock et voir les différentes solutions dans le douzième exemple de code : [Example.12.Deadlock.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.12.Deadlock.cs)
 
 ## Renvoyer la tâche
 
