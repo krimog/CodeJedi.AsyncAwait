@@ -16,12 +16,12 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.UIThreadId, StringFormat='ID du thread UI : {0:D}'}" />
                 <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.ProcessingThreadId, StringFormat='ID du thread de traitement : {0:D}'}" />
-                
+
                 <TextBlock x:Name="ResultTextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"
                            Grid.Column="2"/>
             </Grid>
             <Grid Height="30">
-                <ProgressBar Minimum="0" Maximum="1" 
+                <ProgressBar Minimum="0" Maximum="1" Background="#FFF8F8F8"
                              Value="{Binding Processing.Progress, Mode=OneWay}" />
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock.Style>
@@ -37,13 +37,37 @@
                 </TextBlock>
             </Grid>
             <Grid Height="30">
-            <ProgressBar IsIndeterminate="True" />
-            <TextBlock Text="Si cette barre défile, c'est que le thread UI n'est pas bloqué." VerticalAlignment="Center"
+                <ProgressBar IsIndeterminate="True" Foreground="Gray" Background="LightGray" />
+                <ProgressBar IsIndeterminate="True" Foreground="Gray" Background="Transparent">
+                    <ProgressBar.LayoutTransform>
+                        <RotateTransform Angle="180" />
+                    </ProgressBar.LayoutTransform>
+                </ProgressBar>
+                <TextBlock Text="Si cette barre défile, c'est que le thread UI n'est pas bloqué." VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
-        </Grid>
+            </Grid>
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="LightGray" Name="MainBorder" BorderBrush="Gray" BorderThickness="1" Margin="0 1 0 0">
+                                        <ContentPresenter Content="{TemplateBinding Content}" Margin="10 3" HorizontalAlignment="Left" TextBlock.Foreground="{TemplateBinding Foreground}" Name="Presenter" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="MainBorder" Property="Background" Value="Gray" />
+                                            <Setter TargetName="Presenter" Property="TextBlock.Foreground" Value="White" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
                 <Button Command="{Binding SynchronousCommand}">1. Exécution synchrone</Button>
                 <Button Command="{Binding BackgroundWorkerCommand}">2. BackgroundWorker</Button>
                 <Button Command="{Binding DispatcherCommand}">3. Dispatcher</Button>
