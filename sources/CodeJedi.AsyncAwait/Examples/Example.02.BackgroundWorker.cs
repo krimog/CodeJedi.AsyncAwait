@@ -13,7 +13,7 @@ namespace CodeJedi.AsyncAwait.Examples
             backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 
             // Code exécuté sur le thread UI
-            Processing.BeforeProcessing("On lance le traitement via un BackgroundWorker");
+            Processing.WriteText("On lance le traitement via un BackgroundWorker");
 
             backgroundWorker.RunWorkerAsync();
 
@@ -22,7 +22,7 @@ namespace CodeJedi.AsyncAwait.Examples
             /**************************************/
             // Code exécuté sur le thread UI
             // Mais puisque RunWorkerAsync n'est pas bloquant, ce texte s'affiche avant la fin du traitement
-            Processing.AfterProcessing("Le traitement est terminé");
+            Processing.WriteText("Le traitement est terminé");
         }
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -33,14 +33,14 @@ namespace CodeJedi.AsyncAwait.Examples
             /********** CODE À SUPPRIMER **********/
             /**************************************/
             // Ce code d'affichage n'est pas exécuté sur le thread UI, donc va lever une exception
-            Processing.AfterProcessing("Le traitement est terminé");
+            Processing.WriteText("Le traitement est terminé");
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             // Code exécuté sur le thread UI
             // Une fois le traitement fini
-            Processing.AfterProcessing("Le traitement du BackgroundWorker est terminé");
+            Processing.WriteText("Le traitement du BackgroundWorker est terminé");
         }
     }
 }

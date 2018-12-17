@@ -14,6 +14,8 @@ Si la donnée n'est pas en cache, il faut obtenir sa valeur. Si la valeur était
 
 En revanche, si la donnée est en cache, une récupération synchrone de la valeur est plus performante. La méthode sera dans tous les cas *awaitable*, mais le traitement sera asynchrone ou non selon le besoin.
 
+> Vous pouvez voir un exemple de méthode asynchrone dont le traitement est synchrone dans le sixième exemple de code : [Example.06.SynchronousAsync.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.06.SynchronousAsync.cs)
+
 ### La méthode sera synchrone ou asynchrone selon son implémentation
 
 Là, la raison est encore plus simple : si l'interface est commune, le prototype l'est aussi, et donc le fait qu'une méthode soit *awaitable* l'est également. Si une seule implémentation de l'interface est asynchrone et nécessite donc d'être *awaitable*, alors toutes les autres implémentations devront également être *awaitable*, qu'elles soient synchrones ou asynchrones.

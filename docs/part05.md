@@ -183,6 +183,8 @@ public async Task MyMethod5Async()
 }
 ```
 
+> Pour voir un appel asynchrone attendu, exécutez le quatrième exemple de code : [Example.04.AsyncAwaitSimple.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.04.AsyncAwaitSimple.cs)
+
 ## Les blocs
 
 Comme on l'avait vu [précédemment](./part03.md), les précédents moyens de faire de l'asynchronisme utilisaient des *délégués*. Le code d'un *délégué* est dans un bloc à part, indépendant du bloc appelant. En revanche, en utilisant `async` et `await`, on n'utilise pas de délégué.

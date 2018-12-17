@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
-using System;
-
-namespace CodeJedi.AsyncAwait.Examples
+﻿namespace CodeJedi.AsyncAwait.Examples
 {
     public partial class Example
     {
-		public async void AsyncAwaitSimpleExample()
+        public async void AsyncAwaitSimpleExample()
         {
-            Processing.BeforeProcessing("Start processing with async and await");
-            await Task.Run(() => Processing.DoSomeHeavyProcessing());
-            Processing.AfterProcessing("Processing finished with async and await");
+            Processing.WriteText("On appelle une méthode asynchrone et on l'attend.");
+
+            // S'il existe une méthode Async, on peut l'attendre grâce à await.
+            await Processing.DoSomeHeavyProcessingAsync();
+            
+            Processing.WriteText("La méthode asynchrone est terminée.");
         }
     }
 }

@@ -80,6 +80,8 @@ public async Task<string> GetResponseContentAsync(string url)
 }
 ```
 
+> Voyez comment appeler du code synchrone de manière asynchrone en vous reportant au cinquième exemple de code : [Example.05.RunAsynchronously.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.05.RunAsynchronously.cs)
+
 ## L'arbre d'appel
 
 ### Le problème du retour

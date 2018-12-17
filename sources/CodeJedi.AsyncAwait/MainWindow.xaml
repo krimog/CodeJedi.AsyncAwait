@@ -12,7 +12,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.UIThreadId, StringFormat='ID du thread UI : {0:D}'}" />
                 <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Processing.ProcessingThreadId, StringFormat='ID du thread de traitement : {0:D}'}" />
@@ -44,10 +44,16 @@
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Button Command="{Binding SynchronousCommand}">Exécution synchrone</Button>
-                <Button Command="{Binding BackgroundWorkerCommand}">BackgroundWorker</Button>
-                <Button Command="{Binding DispatcherCommand}">Dispatcher</Button>
-                <Button Command="{Binding AsyncAwaitSimpleCommand}">Exemple simple avec async et await</Button>
+                <Button Command="{Binding SynchronousCommand}">1. Exécution synchrone</Button>
+                <Button Command="{Binding BackgroundWorkerCommand}">2. BackgroundWorker</Button>
+                <Button Command="{Binding DispatcherCommand}">3. Dispatcher</Button>
+                <Button Command="{Binding AsyncAwaitSimpleCommand}">4. Exemple simple avec async et await</Button>
+                <Button Command="{Binding RunAsynchronouslyCommand}">5. Appeler une méthode synchrone de manière asynchrone</Button>
+                <Button Command="{Binding SynchronousAsyncCommand}">6. Appeler une méthode asynchrone qui ne fait pas de traitement asynchrone</Button>
+                <Button Command="{Binding WhenAllCommand}">7. Appeler plusieurs tâches en parallèle</Button>
+                <Button Command="{Binding WhenAnyCommand}">8. Appeler plusieurs tâches en parallèle et afficher un message dès qu'une se termine</Button>
+                <Button Command="{Binding ConfigureAwaitCommand}">9. Utiliser ConfigureAwait(false) pour retourner sur un autre thread</Button>
+                <Button Command="{Binding DeadlockCommand}">10. Provoquer un deadlock</Button>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>

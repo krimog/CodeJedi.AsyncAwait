@@ -28,11 +28,13 @@ await asynchronousAction().ConfigureAwait(false);
 
 Lorsque le code qui suit un `await` ne nécessite pas d'être sur le même thread que le précédent, cette méthode peut faire gagner du temps.
 
+> Le neuvième exemple de code vous montrera ça : [Example.09.ConfigureAwait.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.09.ConfigureAwait.cs)
+
 ## Deadlock
 
 Non, je préfère être clair : un deadlock n'est **pas** une bonne pratique. La bonne pratique dont je vais parler permet d'éviter les deadlocks.
 
-Déjà, qu'est-ce qu'un deadlock ? C'est une situation sans solution dans laquelle deux threads (ou plus) s'attendent mutuellement.
+Déjà, qu'est-ce qu'un deadlock ? C'est une situation sans solution dans laquelle deux threads (ou plus) s'attendent mutuellement. C'est une situation dont on ne peut pas se sortir sans forcer la fermeture du programme (sauf si des *timeout* ont été mis en place).
 
 ```csharp
 void SynchronousMethod()
@@ -57,8 +59,10 @@ Lorsque le `Task.Delay(10)` est terminé, pour passer à l'emplacement 4, il doi
 Pour éviter ça, il existe plusieurs solutions :
 
 * Eviter au maximum de mélanger le code synchrone et asynchrone.
-* Mettre un `ConfigureAwait(false)` derrière `Task.Delay(10)`. Ainsi, il pourra atteindre l'emplacement 4 et la fin de la question sans le thread 1. L'exécution peut alors continuer.
+* Mettre un `ConfigureAwait(false)` derrière `Task.Delay(10)` (et sur l'intégralité des `await` des sous-méthodes). Ainsi, il pourra atteindre l'emplacement 4 et la fin de la question sans le thread 1. L'exécution peut alors continuer.
 * Démarrer `AsynchronousMethod()` sur un autre thread : `Task.Run(() => AsynchronousMethod()).Wait();`
+
+> Vous pouvez provoquer un deadlock et voir les différentes solutions dans le dixième exemple de code : [Example.10.Deadlock.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.10.Deadlock.cs)
 
 ## Renvoyer la tâche
 

@@ -8,7 +8,7 @@ namespace CodeJedi.AsyncAwait.Examples
         public void DispatcherExample()
         {
             // Code exécuté sur le thread UI
-            Processing.BeforeProcessing("On lance le traitement manuellement");
+            Processing.WriteText("On lance le traitement manuellement");
             var dispatcher = Dispatcher.CurrentDispatcher;
 
             // Ce code permet de lancer l'exécution dans un autre thread
@@ -21,7 +21,7 @@ namespace CodeJedi.AsyncAwait.Examples
                 dispatcher.Invoke(() =>
                 {
                     // Code à nouveau exécuté sur le thread UI
-                    Processing.AfterProcessing("Le traitement est terminé et ce texte est affiché grâce au dispatcher");
+                    Processing.WriteText("Le traitement est terminé et ce texte est affiché grâce au dispatcher");
                 });
             });
         }

@@ -12,6 +12,8 @@ Lorsqu'on lance un client lourd avec une interface graphique, le programme déma
 
 Effectuer l'attente sur un autre thread (avoir un comportement asynchrone) libère donc le thread UI, qui peut s'occuper de l'affichage. L'interface graphique répond, l'utiliateur est content.
 
+> Pour voir ce qui se passe quand on fait un traitement lourd sur le thread UI sur un client lourd, exécutez le premier exemple de code : [Example.01.Synchronous.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.01.Synchronous.cs)
+
 ### ASP.NET
 
 Le besoin semble moins important, puisque ASP.NET (que ce soit pour un site web ou pour un service), ne fait que répondre à des requêtes. D'ailleurs, à combien de requêtes peut-il répondre simultanément ? Par défaut, il y a 100 threads (capables de répondre à une requête) disponibles par cœur logiciel. La 101ème requête renverra une réponse avec un statut 503 (service indisponible) indiquant que le serveur est encombré.

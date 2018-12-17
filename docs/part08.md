@@ -60,6 +60,8 @@ var result3 = results[2];
 >
 > `Task.WhenAll` s'arrête à la première exception levée au sein d'une des tâches.
 
+> Voyez un exemple en action avec le septième exemple de code : [Example.07.WhenAll.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.07.WhenAll.cs)
+
 ## `Task.WhenAny`
 
 Et si j'ai plein de tâches à lancer et que je veux voir l'avancement ?
@@ -99,5 +101,7 @@ while (runningTasks.Any())
     // On peut également utiliser le nombre de tâches qu'on a terminé pour afficher l'avancement.
 }
 ```
+
+> Voyez un exemple concret avec le huitème exemple de code : [Example.08.WhenAny.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.08.WhenAny.cs)
 
 [Suite](./part09.md)

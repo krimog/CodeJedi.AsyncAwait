@@ -36,6 +36,8 @@ private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerComplet
 }
 ```
 
+> Vous pouvez voir ce code en action en exécutant le deuxième exemple de code : [Example.02.BackgroundWorker.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.02.BackgroundWorker.cs)
+
 ## Dispatcher
 
 Le `Dispatcher` est un objet permettant d'exécuter du code sur le thread d'où il vient. On peut donc créer manuellement un nouveau thread sur lequel on exécutera le traitement lourd, puis on exécutera, grâce au dispatcher, le code d'un délégué sur le thread UI.
@@ -64,5 +66,7 @@ public void DispatcherExample()
     });
 }
 ```
+
+> Vous pouvez voir ce code en action en exécutant le troisième exemple de code : [Example.03.Dispatcher.cs](../sources/CodeJedi.AsyncAwait/Examples/Example.03.Dispatcher.cs)
 
 [Suite](./part04.md)
