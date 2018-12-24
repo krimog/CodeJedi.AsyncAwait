@@ -94,4 +94,4 @@ Task MyMethodAsync()
 >
 > Si le `await` à enlever est au sein d'un bloc (`using`, `try/catch`...), le replacer par un `return` risque d'avoir des effets secondaires, puisqu'on sortira du bloc avant la fin de la tâche.
 
-[Suite](./part10.md)
+[Suite](./part11.md)
